@@ -61,6 +61,7 @@ function App() {
                 <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer">GITHUB</a>
                 <a href="mailto:allenpjison@gmail.com">EMAIL</a>
               </div>
+            </div>
           </div>
         </section>
 
