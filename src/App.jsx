@@ -4,7 +4,7 @@ import { Moon, Sun, ArrowUpRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
-import { BootSequence, AsciiSphere, AsciiWave } from './components/TerminalFx';
+import { BootSequence, AsciiSphere, AsciiWave, SystemInfo } from './components/TerminalFx';
 import './App.css';
 
 function App() {
@@ -64,6 +64,9 @@ function App() {
                 <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer">GITHUB</a>
                 <a href="mailto:allenpjison@gmail.com">EMAIL</a>
               </div>
+            </div>
+            <div className="profile-img-container" style={{ width: '100%', maxWidth: '450px' }}>
+              <SystemInfo />
             </div>
           </div>
         </section>

@@ -209,3 +209,141 @@ export const AsciiWave = () => {
     </div>
   );
 };
+
+// SYSTEM INFO / INTERACTIVE TERMINAL COMPONENT
+export const SystemInfo = () => {
+  const [uptime, setUptime] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    // Start uptime at ~7882 days for the retro feel from the reference
+    setUptime(7882 * 24 * 3600 + 2 * 3600 + 23 * 60 + 40);
+    const timer = setInterval(() => setUptime(prev => prev + 1), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePos({ x, y });
+  };
+
+  const formatUptime = (seconds) => {
+    const d = Math.floor(seconds / (3600*24));
+    const h = Math.floor(seconds % (3600*24) / 3600);
+    const m = Math.floor(seconds % 3600 / 60);
+    const s = Math.floor(seconds % 60);
+    return `${d}d ${h}h ${m}m ${s}s`;
+  };
+
+  // Generate some static stars/points for the constellation
+  const points = [
+    { x: 20, y: 30 }, { x: 40, y: 20 }, { x: 30, y: 50 },
+    { x: 60, y: 40 }, { x: 70, y: 70 }, { x: 25, y: 80 },
+    { x: 80, y: 30 }, { x: 50, y: 85 }, { x: 85, y: 65 }
+  ];
+
+  return (
+    <div className="terminal-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <div className="terminal-header" style={{ justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <span className="terminal-title" style={{ margin: 0 }}>[skills.frameworks]</span>
+        </div>
+        <span style={{color: '#fff', fontSize: '0.75rem'}}>live</span>
+      </div>
+      
+      <div 
+        ref={containerRef}
+        onMouseMove={handleMouseMove}
+        className="system-info-body"
+        style={{ 
+          padding: '1.5rem', 
+          background: '#0a0a0a',
+          color: '#d4d4d4',
+          fontFamily: '"Space Mono", monospace',
+          fontSize: '0.85rem',
+          display: 'flex',
+          flexWrap: 'wrap-reverse',
+          gap: '2rem',
+          position: 'relative',
+          overflow: 'hidden',
+          flex: 1,
+          alignItems: 'center'
+        }}
+      >
+        {/* Interactive Constellation Area */}
+        <div style={{
+          flex: '1 1 200px',
+          position: 'relative',
+          height: '200px',
+          minWidth: '200px',
+          cursor: 'crosshair'
+        }}>
+          {/* Points that shift slightly away from mouse */}
+          {points.map((p, i) => {
+            const dx = p.x - mousePos.x;
+            const dy = p.y - mousePos.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            const moveX = dist < 30 ? (dx/dist) * 5 : 0;
+            const moveY = dist < 30 ? (dy/dist) * 5 : 0;
+            
+            return (
+              <div key={i} style={{
+                position: 'absolute',
+                left: `${p.x}%`,
+                top: `${p.y}%`,
+                transform: `translate(${moveX}px, ${moveY}px)`,
+                color: '#888',
+                fontSize: '0.7rem',
+                transition: 'transform 0.2s ease-out'
+              }}>
+                x
+              </div>
+            );
+          })}
+
+          {/* Mouse tracking crosshair */}
+          <div style={{
+            position: 'absolute',
+            left: `${mousePos.x}%`,
+            top: `${mousePos.y}%`,
+            transform: 'translate(-50%, -50%)',
+            color: '#fff',
+            whiteSpace: 'pre',
+            textAlign: 'center',
+            lineHeight: '1',
+            pointerEvents: 'none',
+            transition: 'left 0.1s ease-out, top 0.1s ease-out'
+          }}>
+{`   |   
+ --+-- 
+   |   `}
+          </div>
+        </div>
+        
+        {/* System Text */}
+        <div style={{ 
+          flex: '1 1 250px', 
+          zIndex: 1, 
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '0.75rem',
+          lineHeight: '1.4'
+        }}>
+          <div><span style={{color: '#9ca3af'}}>OS:</span> HumanOS</div>
+          <div><span style={{color: '#9ca3af'}}>Kernel:</span> Claude Code</div>
+          <div><span style={{color: '#9ca3af'}}>Uptime:</span> {formatUptime(uptime)}<br/><span style={{color: '#6b7280', fontSize: '0.75rem'}}>440ms</span></div>
+          <div style={{ marginTop: '0.5rem' }}>
+            <span style={{color: '#9ca3af'}}>Packages:</span> React, Node,<br/>Solidity, SQL
+          </div>
+          <div>
+            <span style={{color: '#9ca3af'}}>Frameworks:</span> Next.js, Express,<br/>Hardhat, Wagmi
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
