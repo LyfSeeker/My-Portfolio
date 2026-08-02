@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { GitHubCalendar } from 'react-github-calendar';
 import { Moon, Sun, ArrowUpRight } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
 import { BootSequence, AsciiSphere, AsciiWave } from './components/TerminalFx';
 import './App.css';
 
@@ -41,7 +44,7 @@ function App() {
           <div className="profile-hero">
             <div className="hero-content">
               <p className="hero-subtitle mono">Hi, I'm</p>
-              <h1 className="hero-title">Allen P. Jison</h1>
+              <h1 className="hero-title">Allen P. Jison<span className="status-dot" title="Available for work"></span></h1>
               <p className="hero-description">
                 A Full-Stack Developer who ships AI-powered products that real users rely on. 
                 I care about high-quality user experience, system design, and building robust backend infrastructure.
@@ -282,12 +285,13 @@ function App() {
             <p className="footer-text">© 2026 Allen P. Jison. All rights reserved.</p>
             <p className="footer-text mt-2 mono" style={{fontSize: '0.75rem'}}>Designed with precision.</p>
           </div>
-          <div className="footer-socials">
-            <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer">GITHUB</a>
-            <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-            <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer">X</a>
-            <a href="mailto:allenpjison@gmail.com">EMAIL</a>
-            <a href="https://buymeacoffee.com/allenpj" target="_blank" rel="noopener noreferrer">COFFEE</a>
+          <div className="footer-socials" style={{ fontSize: '1.5rem', gap: '1.5rem' }}>
+            <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+            <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+            <a href="mailto:allenpjison@gmail.com"><SiGmail /></a>
+            <a href="https://buymeacoffee.com/allenpj" target="_blank" rel="noopener noreferrer"><SiBuymeacoffee /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
           </div>
         </div>
       </footer>
