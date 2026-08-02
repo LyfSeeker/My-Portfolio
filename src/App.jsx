@@ -287,6 +287,7 @@ function App() {
             <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
             <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer">X</a>
             <a href="mailto:allenpjison@gmail.com">EMAIL</a>
+            <a href="https://buymeacoffee.com/allenpj" target="_blank" rel="noopener noreferrer">COFFEE</a>
           </div>
         </div>
       </footer>
