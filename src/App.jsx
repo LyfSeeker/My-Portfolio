@@ -4,7 +4,8 @@ import { Moon, Sun, ArrowUpRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
-import { BootSequence, AsciiSphere, AsciiWave } from './components/TerminalFx';
+import { AsciiSphere, AsciiWave } from './components/TerminalFx';
+import { Preloader } from './components/Preloader';
 import './App.css';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="app-container" style={{ overflow: booted ? 'auto' : 'hidden', height: booted ? 'auto' : '100vh' }}>
-      {!booted && <BootSequence onComplete={() => setBooted(true)} />}
+      {!booted && <Preloader onComplete={() => setBooted(true)} />}
       {/* Navbar */}
       <nav className="navbar">
         <div className="container nav-content">
