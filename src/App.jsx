@@ -56,28 +56,6 @@ function App() {
               <p className="hero-subtitle mono">Hi, I'm</p>
               <h1 className="hero-title" style={{ position: 'relative' }}>
                 <span style={{ color: 'var(--text-secondary)' }}>Allen</span> P.Jison
-                <span className="status-dot" title="Available for work"></span>
-                <span className="hide-on-mobile" style={{
-                  display: 'inline-block',
-                  marginLeft: '2rem',
-                  position: 'relative',
-                  fontSize: '1.25rem',
-                  color: 'var(--text-secondary)',
-                  verticalAlign: 'middle',
-                  pointerEvents: 'none',
-                  opacity: 0.6
-                }}>
-                  <span style={{ position: 'absolute', top: '-25px', left: '0px', animation: 'twinkle 3s infinite' }}>*</span>
-                  <span style={{ position: 'absolute', top: '10px', left: '25px', animation: 'twinkle 4s infinite 1s' }}>+</span>
-                  <span style={{ position: 'absolute', top: '-10px', left: '50px', animation: 'twinkle 5s infinite 2s' }}>*</span>
-                  <span style={{ position: 'absolute', top: '20px', left: '10px', animation: 'twinkle 3.5s infinite 0.5s' }}>.</span>
-                  <style>{`
-                    @keyframes twinkle {
-                      0%, 100% { opacity: 0.2; transform: scale(0.8); }
-                      50% { opacity: 1; transform: scale(1.2); }
-                    }
-                  `}</style>
-                </span>
               </h1>
               <TypewriterText strings={['Full Stack Developer', 'Frontend Developer', 'Blockchain Developer', 'Backend Engineer']} delay={5000} />
               <p className="hero-description">
