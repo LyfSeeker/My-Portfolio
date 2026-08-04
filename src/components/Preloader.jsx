@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export const Preloader = ({ onComplete }) => {
   const [stage, setStage] = useState(0); // 0: loading, 1: fading out, 2: complete
-  const [lettersRevealed, setLettersRevealed] = useState(0);
+  const [displayText, setDisplayText] = useState("");
 
   const name = "ALLEN";
 
@@ -16,16 +16,25 @@ export const Preloader = ({ onComplete }) => {
 
     // Timing
     const totalDuration = 2800;
-    const letterRevealDelay = (totalDuration - 500) / name.length;
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;':,./<>?";
+    let iteration = 0;
 
-    let currentLetter = 0;
     const interval = setInterval(() => {
-      currentLetter++;
-      setLettersRevealed(currentLetter);
-      if (currentLetter >= name.length) {
+      setDisplayText(
+        name.split("").map((letter, index) => {
+          if (index < Math.floor(iteration)) {
+            return name[index];
+          }
+          return letters[Math.floor(Math.random() * letters.length)];
+        }).join("")
+      );
+      
+      if (iteration >= name.length) {
         clearInterval(interval);
       }
-    }, letterRevealDelay);
+      
+      iteration += 1 / 8;
+    }, 40);
 
     const finishTimeout = setTimeout(() => {
       setStage(1); // Start fade out
@@ -81,18 +90,13 @@ export const Preloader = ({ onComplete }) => {
         fontWeight: '800', 
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         letterSpacing: '0.15em',
-        userSelect: 'none'
+        userSelect: 'none',
+        color: '#fff',
+        textShadow: '0 0 30px rgba(255,255,255,0.4)',
+        minWidth: '300px',
+        justifyContent: 'center'
       }}>
-        {name.split('').map((char, i) => (
-          <span key={i} style={{
-            color: '#fff',
-            opacity: (i === 0 || i <= lettersRevealed) ? 1 : 0.15,
-            transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
-            textShadow: (i === 0 || i <= lettersRevealed) ? '0 0 30px rgba(255,255,255,0.4)' : 'none'
-          }}>
-            {char}
-          </span>
-        ))}
+        {displayText}
       </div>
 
       {/* Loading line below */}
