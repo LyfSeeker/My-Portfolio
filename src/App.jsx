@@ -34,6 +34,7 @@ function App() {
             <a href="#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</a>
             <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
             <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
             <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -55,13 +56,11 @@ function App() {
             <div className="hero-content">
               <p className="hero-subtitle mono">Hi, I'm</p>
               <h1 className="hero-title" style={{ position: 'relative' }}>
-                <span style={{ color: 'var(--text-secondary)' }}>Allen</span> P.Jison
+                <span style={{ color: 'var(--text-secondary)' }}>Allen</span> P Jison
               </h1>
               <TypewriterText strings={['Full Stack Developer', 'Frontend Developer', 'Blockchain Developer', 'Backend Engineer']} delay={5000} />
               <p className="hero-description">
-                A Full-Stack Developer who ships AI-powered products that real users rely on. 
-                I care about high-quality user experience, system design, and building robust backend infrastructure.
-                I ship fast under deadlines without dropping quality, and I love building tools that solve real problems.
+                I'm a full-stack developer passionate about building fast, scalable web applications and AI-powered products. I enjoy solving real-world problems, participating in hackathons, and turning ideas into polished user experiences.
               </p>
               <div className="btn-group">
                 <PopupButton 

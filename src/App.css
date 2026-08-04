@@ -121,10 +121,10 @@ main {
 }
 
 .hero-title {
-  font-family: 'VT323', monospace;
+  font-family: 'Inter', 'Geist', 'Space Grotesk', system-ui, -apple-system, sans-serif;
   font-size: clamp(3.5rem, 7vw, 5.5rem);
-  font-weight: 400;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
   line-height: 1.1;
 }
