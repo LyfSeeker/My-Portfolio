@@ -7,15 +7,9 @@ export const Preloader = ({ onComplete }) => {
   const name = "ALLEN";
 
   useEffect(() => {
-    // Check if animation has already played in this session
-    const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
-    if (hasSeenIntro) {
-      onComplete();
-      return;
-    }
 
     // Timing
-    const totalDuration = 2800;
+    const totalDuration = 1400;
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;':,./<>?";
     let iteration = 0;
 
@@ -33,16 +27,15 @@ export const Preloader = ({ onComplete }) => {
         clearInterval(interval);
       }
       
-      iteration += 1 / 8;
-    }, 40);
+      iteration += 1 / 3;
+    }, 30);
 
     const finishTimeout = setTimeout(() => {
       setStage(1); // Start fade out
-      sessionStorage.setItem('hasSeenIntro', 'true');
       
       setTimeout(() => {
         onComplete();
-      }, 800); // Wait for fade out to complete
+      }, 500); // Wait for fade out to complete
     }, totalDuration);
 
     return () => {
@@ -51,8 +44,6 @@ export const Preloader = ({ onComplete }) => {
     };
   }, [onComplete]);
 
-  // If already seen in this session, return null immediately to avoid flash
-  if (sessionStorage.getItem('hasSeenIntro')) return null;
 
   return (
     <div style={{
@@ -113,7 +104,7 @@ export const Preloader = ({ onComplete }) => {
           top: 0, left: 0, bottom: 0,
           width: '100%',
           backgroundColor: '#fff',
-          animation: 'fill-line 2.8s cubic-bezier(0.25, 1, 0.5, 1) forwards'
+          animation: 'fill-line 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards'
         }}></div>
       </div>
 
