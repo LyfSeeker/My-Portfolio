@@ -45,7 +45,7 @@ function App() {
           <div className="profile-hero">
             <div className="hero-content">
               <p className="hero-subtitle mono">Hi, I'm</p>
-              <h1 className="hero-title"><span style={{ color: 'var(--text-secondary)' }}>Allen</span> P. Jison<span className="status-dot" title="Available for work"></span></h1>
+              <h1 className="hero-title"><span style={{ color: 'var(--text-secondary)' }}>Allen</span> P.Jison<span className="status-dot" title="Available for work"></span></h1>
               <TypewriterText strings={['Full Stack Developer', 'Frontend Developer', 'Blockchain Developer', 'Backend Engineer']} />
               <p className="hero-description">
                 A Full-Stack Developer who ships AI-powered products that real users rely on. 
