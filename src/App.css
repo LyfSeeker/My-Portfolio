@@ -87,9 +87,10 @@ main {
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: 'VT323', monospace;
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
   margin-bottom: 1.5rem;
   line-height: 1.1;
 }
