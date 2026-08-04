@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { PopupButton } from 'react-calendly';
 import { GitHubCalendar } from 'react-github-calendar';
 import { Moon, Sun, ArrowUpRight, Menu, X } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
@@ -61,9 +62,12 @@ function App() {
                 I ship fast under deadlines without dropping quality, and I love building tools that solve real problems.
               </p>
               <div className="btn-group">
-                <a href="#contact" className="btn btn-primary">
-                  Schedule Call
-                </a>
+                <PopupButton 
+                  url="https://calendly.com/allenpjison"
+                  rootElement={document.getElementById('root')}
+                  text="Schedule Call"
+                  className="btn btn-primary"
+                />
                 <a href="#" className="btn btn-secondary">
                   Resume
                 </a>
