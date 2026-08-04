@@ -77,6 +77,10 @@ main {
   .nav-links.mobile-active {
     right: 0;
   }
+
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
 
 .theme-toggle {

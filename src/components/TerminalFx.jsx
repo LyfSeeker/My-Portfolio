@@ -370,7 +370,7 @@ export const TypewriterText = ({ strings, delay = 1200 }) => {
     }}>
       <span style={{ 
         display: 'inline-block',
-        animation: 'fade-cycle 1.2s infinite'
+        animation: `fade-cycle ${delay / 1000}s infinite`
       }}>
         {strings[index]}
       </span>
