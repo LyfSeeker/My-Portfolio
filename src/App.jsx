@@ -282,6 +282,20 @@ function App() {
 
       {/* Footer */}
       <footer className="footer container" id="contact">
+        <div style={{
+          textAlign: 'center',
+          padding: '2rem 1rem 3rem 1rem',
+          maxWidth: '800px',
+          margin: '0 auto',
+          color: 'var(--text-secondary)',
+          fontStyle: 'italic',
+          fontFamily: '"Space Mono", monospace',
+          fontSize: 'clamp(0.85rem, 3vw, 1.1rem)',
+          letterSpacing: '0.05em',
+          lineHeight: '1.6'
+        }}>
+          "Ever tried. Ever failed. No matter. Try again. Fail again. Fail better."
+        </div>
         <div className="footer-content">
           <div>
             <p className="footer-text">© 2026 Allen P. Jison. All rights reserved.</p>
