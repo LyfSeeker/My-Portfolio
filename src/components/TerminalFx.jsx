@@ -348,56 +348,38 @@ export const SystemInfo = () => {
   );
 };
 
-// TYPEWRITER COMPONENT
-export const TypewriterText = ({ strings, typingSpeed = 100, deletingSpeed = 50, delay = 2000 }) => {
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
+// CYCLING TEXT COMPONENT (Replaces Typewriter)
+export const TypewriterText = ({ strings, delay = 1200 }) => {
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const i = loopNum % strings.length;
-    const fullText = strings[i];
-
-    let timer;
-    if (isDeleting) {
-      timer = setTimeout(() => {
-        setText(fullText.substring(0, text.length - 1));
-      }, deletingSpeed);
-    } else {
-      timer = setTimeout(() => {
-        setText(fullText.substring(0, text.length + 1));
-      }, typingSpeed);
-    }
-
-    if (!isDeleting && text === fullText) {
-      timer = setTimeout(() => setIsDeleting(true), delay);
-    } else if (isDeleting && text === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-    }
-
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, strings, typingSpeed, deletingSpeed, delay]);
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % strings.length);
+    }, delay);
+    return () => clearInterval(timer);
+  }, [strings, delay]);
 
   return (
     <div style={{
       fontSize: '1.25rem',
       fontFamily: '"Space Mono", monospace',
       marginBottom: '1.5rem',
-      color: '#d48a5b', // Warm retro orange/brown
-      display: 'inline-block'
+      color: 'var(--text-secondary)',
+      display: 'inline-block',
+      position: 'relative'
     }}>
       <span style={{ 
-        borderRight: '2px solid #d48a5b',
-        animation: 'blink-caret 1s step-end infinite',
-        paddingRight: '5px'
+        display: 'inline-block',
+        animation: 'fade-cycle 1.2s infinite'
       }}>
-        {text}
+        {strings[index]}
       </span>
       <style>{`
-        @keyframes blink-caret {
-          from, to { border-color: transparent }
-          50% { border-color: #d48a5b; }
+        @keyframes fade-cycle {
+          0% { opacity: 0; transform: translateY(2px); }
+          15% { opacity: 1; transform: translateY(0); }
+          85% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-2px); }
         }
       `}</style>
     </div>
