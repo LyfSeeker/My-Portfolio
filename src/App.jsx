@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { GitHubCalendar } from 'react-github-calendar';
-import { Moon, Sun, ArrowUpRight } from 'lucide-react';
+import { Moon, Sun, ArrowUpRight, Menu, X } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
@@ -11,6 +11,7 @@ import './App.css';
 function App() {
   const [theme, setTheme] = useState('dark');
   const [booted, setBooted] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -27,15 +28,22 @@ function App() {
       <nav className="navbar">
         <div className="container nav-content">
           <div className="nav-logo">aj.</div>
-          <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
+          <div className={`nav-links ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a>
+            <a href="#experience" onClick={() => setIsMobileMenuOpen(false)}>Experience</a>
+            <a href="#projects" onClick={() => setIsMobileMenuOpen(false)}>Projects</a>
+            <a href="#skills" onClick={() => setIsMobileMenuOpen(false)}>Skills</a>
             <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
+          <button 
+            className="mobile-menu-btn" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </nav>
 
