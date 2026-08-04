@@ -4,7 +4,7 @@ import { Moon, Sun, ArrowUpRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
-import { AsciiSphere, AsciiWave } from './components/TerminalFx';
+import { AsciiSphere, AsciiWave, TypewriterText } from './components/TerminalFx';
 import { Preloader } from './components/Preloader';
 import './App.css';
 
@@ -46,6 +46,7 @@ function App() {
             <div className="hero-content">
               <p className="hero-subtitle mono">Hi, I'm</p>
               <h1 className="hero-title"><span style={{ color: 'var(--text-secondary)' }}>Allen</span> P. Jison<span className="status-dot" title="Available for work"></span></h1>
+              <TypewriterText strings={['Full Stack Developer', 'Frontend Developer', 'Blockchain Developer', 'Backend Engineer']} />
               <p className="hero-description">
                 A Full-Stack Developer who ships AI-powered products that real users rely on. 
                 I care about high-quality user experience, system design, and building robust backend infrastructure.

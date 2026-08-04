@@ -347,3 +347,59 @@ export const SystemInfo = () => {
     </div>
   );
 };
+
+// TYPEWRITER COMPONENT
+export const TypewriterText = ({ strings, typingSpeed = 100, deletingSpeed = 50, delay = 2000 }) => {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+
+  useEffect(() => {
+    const i = loopNum % strings.length;
+    const fullText = strings[i];
+
+    let timer;
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setText(fullText.substring(0, text.length - 1));
+      }, deletingSpeed);
+    } else {
+      timer = setTimeout(() => {
+        setText(fullText.substring(0, text.length + 1));
+      }, typingSpeed);
+    }
+
+    if (!isDeleting && text === fullText) {
+      timer = setTimeout(() => setIsDeleting(true), delay);
+    } else if (isDeleting && text === '') {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+    }
+
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, strings, typingSpeed, deletingSpeed, delay]);
+
+  return (
+    <div style={{
+      fontSize: '1.25rem',
+      fontFamily: '"Space Mono", monospace',
+      marginBottom: '1.5rem',
+      color: '#d48a5b', // Warm retro orange/brown
+      display: 'inline-block'
+    }}>
+      <span style={{ 
+        borderRight: '2px solid #d48a5b',
+        animation: 'blink-caret 1s step-end infinite',
+        paddingRight: '5px'
+      }}>
+        {text}
+      </span>
+      <style>{`
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: #d48a5b; }
+        }
+      `}</style>
+    </div>
+  );
+};
