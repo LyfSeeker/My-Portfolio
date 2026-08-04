@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export const Preloader = ({ onComplete }) => {
   const [stage, setStage] = useState(0); // 0: loading, 1: fading out, 2: complete
-  const [displayText, setDisplayText] = useState("");
+  const [displayText, setDisplayText] = useState([]);
 
   const name = "ALLEN";
 
@@ -17,10 +17,13 @@ export const Preloader = ({ onComplete }) => {
       setDisplayText(
         name.split("").map((letter, index) => {
           if (index < Math.floor(iteration)) {
-            return name[index];
+            return { char: name[index], isFinal: true };
           }
-          return letters[Math.floor(Math.random() * letters.length)];
-        }).join("")
+          return { 
+            char: letters[Math.floor(Math.random() * letters.length)], 
+            isFinal: false 
+          };
+        })
       );
       
       if (iteration >= name.length) {
@@ -87,7 +90,15 @@ export const Preloader = ({ onComplete }) => {
         minWidth: '300px',
         justifyContent: 'center'
       }}>
-        {displayText}
+        {displayText.map((item, i) => (
+          <span key={i} style={{
+            color: item.isFinal ? '#fff' : 'rgba(255, 255, 255, 0.25)',
+            textShadow: item.isFinal ? '0 0 30px rgba(255,255,255,0.4)' : 'none',
+            transition: 'color 0.1s ease, text-shadow 0.1s ease'
+          }}>
+            {item.char}
+          </span>
+        ))}
       </div>
 
       {/* Loading line below */}
