@@ -86,7 +86,7 @@ export const AsciiSphere = () => {
       const height = 20;
       
       for (let k = 0; k < width * height; k++) {
-        b[k] = k % width === width - 1 ? '\\n' : ' ';
+        b[k] = k % width === width - 1 ? '\n' : ' ';
         z[k] = 0;
       }
       
@@ -172,7 +172,7 @@ export const AsciiWave = () => {
           const charIdx = Math.floor(normalized * chars.length);
           b.push(chars[Math.min(charIdx, chars.length - 1)]);
         }
-        b.push('\\n');
+        b.push('\n');
       }
       setFrame(b.join(''));
     };
@@ -348,16 +348,42 @@ export const SystemInfo = () => {
   );
 };
 
-// CYCLING TEXT COMPONENT (Replaces Typewriter)
-export const TypewriterText = ({ strings, delay = 1200 }) => {
-  const [index, setIndex] = useState(0);
+// TYPEWRITER TEXT COMPONENT
+export const TypewriterText = ({ strings, delay = 2000 }) => {
+  const [currentStringIndex, setCurrentStringIndex] = useState(0);
+  const [currentText, setCurrentText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % strings.length);
-    }, delay);
-    return () => clearInterval(timer);
-  }, [strings, delay]);
+    let timeout;
+    
+    const currentFullString = strings[currentStringIndex];
+    
+    if (isDeleting) {
+      if (currentText === '') {
+        setIsDeleting(false);
+        setCurrentStringIndex((prev) => (prev + 1) % strings.length);
+        // Small pause before typing next word
+        timeout = setTimeout(() => {}, 200); 
+      } else {
+        timeout = setTimeout(() => {
+          setCurrentText(currentFullString.substring(0, currentText.length - 1));
+        }, 50); // Delete speed
+      }
+    } else {
+      if (currentText === currentFullString) {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, delay); // Wait before deleting
+      } else {
+        timeout = setTimeout(() => {
+          setCurrentText(currentFullString.substring(0, currentText.length + 1));
+        }, 100); // Type speed
+      }
+    }
+    
+    return () => clearTimeout(timeout);
+  }, [currentText, isDeleting, currentStringIndex, strings, delay]);
 
   return (
     <div style={{
@@ -366,20 +392,24 @@ export const TypewriterText = ({ strings, delay = 1200 }) => {
       marginBottom: '1.5rem',
       color: 'var(--text-secondary)',
       display: 'inline-block',
-      position: 'relative'
+      position: 'relative',
+      minHeight: '1.5em'
     }}>
+      <span>{currentText}</span>
       <span style={{ 
         display: 'inline-block',
-        animation: `fade-cycle ${delay / 1000}s infinite`
-      }}>
-        {strings[index]}
-      </span>
+        width: '0.6em',
+        height: '1.1em',
+        backgroundColor: 'var(--text-secondary)',
+        animation: 'blink 1s step-end infinite',
+        verticalAlign: 'middle',
+        marginLeft: '4px',
+        opacity: 0.8
+      }}></span>
       <style>{`
-        @keyframes fade-cycle {
-          0% { opacity: 0; transform: translateY(2px); }
-          15% { opacity: 1; transform: translateY(0); }
-          85% { opacity: 1; transform: translateY(0); }
-          100% { opacity: 0; transform: translateY(-2px); }
+        @keyframes blink { 
+          0%, 100% { opacity: 0; }
+          50% { opacity: 0.8; }
         }
       `}</style>
     </div>

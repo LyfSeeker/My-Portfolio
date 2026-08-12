@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { PopupButton } from 'react-calendly';
 import { GitHubCalendar } from 'react-github-calendar';
-import { Moon, Sun, ArrowUpRight, Menu, X } from 'lucide-react';
+import { Moon, Sun, ArrowUpRight, ArrowRight, Menu, X } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
-import { AsciiSphere, AsciiWave, TypewriterText } from './components/TerminalFx';
+import { TypewriterText } from './components/TerminalFx';
+import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { Preloader } from './components/Preloader';
+import { SkillsMarquee } from './components/SkillsMarquee';
 import './App.css';
 
 function App() {
@@ -56,9 +58,9 @@ function App() {
             <div className="hero-content">
               <p className="hero-subtitle mono">Hi, I'm</p>
               <h1 className="hero-title" style={{ position: 'relative' }}>
-                <span style={{ color: 'var(--text-secondary)' }}>Allen</span> P Jison
+                Allen P Jison
               </h1>
-              <TypewriterText strings={['Full Stack Developer', 'Frontend Developer', 'Blockchain Developer', 'Backend Engineer']} delay={5000} />
+              <TypewriterText strings={['Full Stack Developer', 'Frontend Developer', 'Blockchain Developer', 'Backend Engineer']} delay={4000} />
               <p className="hero-description">
                 I'm a full-stack developer passionate about building fast, scalable web applications and AI-powered products. I enjoy solving real-world problems, participating in hackathons, and turning ideas into polished user experiences.
               </p>
@@ -69,15 +71,15 @@ function App() {
                   text="Schedule Call"
                   className="btn btn-primary"
                 />
-                <a href="#" className="btn btn-secondary">
+                <a href="/resume.pdf" download="Allen_P_Jison_Resume.pdf" className="btn btn-secondary">
                   Resume
                 </a>
               </div>
               <div className="footer-socials mt-8">
-                <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer">X</a>
-                <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
-                <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer">GITHUB</a>
-                <a href="mailto:allenpjison@gmail.com">EMAIL</a>
+                <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">X</a>
+                <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LINKEDIN</a>
+                <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GITHUB</a>
+                <a href="mailto:allenpjison@gmail.com" aria-label="Email">EMAIL</a>
               </div>
             </div>
           </div>
@@ -85,34 +87,11 @@ function App() {
 
         {/* About / Terminal Section */}
         <section className="section container" id="about">
-          <AsciiSphere />
           <div className="section-header">
             <h2 className="section-title">origin_story.sh</h2>
+            <p className="section-subtitle">Type 'help' to see available commands</p>
           </div>
-          <div className="terminal-card">
-            <div className="terminal-header">
-              <div className="terminal-dot dot-red"></div>
-              <div className="terminal-dot dot-yellow"></div>
-              <div className="terminal-dot dot-green"></div>
-              <span className="terminal-title">bash</span>
-            </div>
-            <div className="terminal-body mono">
-              <span className="term-prompt">$</span> <span className="term-cmd">cat about.json</span>
-              <div>{`{`}</div>
-              <div style={{ paddingLeft: '1rem' }}>
-                <span className="term-key">"degree"</span>: <span className="term-string">"B.Tech Computer Science @ Christ College of Engineering"</span>,
-                <br/>
-                <span className="term-key">"focus"</span>: <span className="term-string">"Full-Stack Development, AI, Blockchain"</span>,
-                <br/>
-                <span className="term-key">"passion"</span>: <span className="term-string">"Building scalable web applications and decentralized apps"</span>,
-                <br/>
-                <span className="term-key">"fun_fact"</span>: <span className="term-string">"Built multiple hackathon projects from idea to demo within 24-48 hours"</span>
-              </div>
-              <div>{`}`}</div>
-              <br/>
-              <span className="term-prompt">$</span> <span className="term-cmd">./execute_growth</span>
-            </div>
-          </div>
+          <InteractiveTerminal />
         </section>
 
         {/* Stats / GitHub Contributions */}
@@ -158,10 +137,27 @@ function App() {
 
         {/* Featured Projects */}
         <section className="section container" id="projects">
-          <div className="section-header">
-            <h2 className="section-title">Featured Projects</h2>
+          <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+            <h2 className="section-title" style={{ marginBottom: 0 }}>Things I've built</h2>
+            <span style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', paddingBottom: '0.5rem' }}>
+              Scroll <ArrowRight size={16} />
+            </span>
           </div>
-          <div className="grid-2">
+          <div className="projects-scroll-container">
+            <div className="project-card">
+              <img src="/equidoxai.png" alt="Equidox AI preview" style={{ width: '100%', height: '200px', objectFit: 'contain', backgroundColor: '#0f1115', borderRadius: '4px', marginBottom: '1.5rem', border: '1px solid var(--border)' }} />
+              <h3 className="project-title">Equidox AI</h3>
+              <p className="project-desc">A blockchain-powered AI platform built on the Stellar network.</p>
+              <div className="project-tags">
+                <span className="tag">Stellar</span>
+                <span className="tag">Blockchain</span>
+                <span className="tag">AI</span>
+              </div>
+              <div className="project-links">
+                <a href="https://github.com/LyfSeeker/Equidox-AI" target="_blank" rel="noopener noreferrer" aria-label="View Equidox AI GitHub"><span className="term-prompt">$</span> view_code -&gt;</a>
+                <a href="https://equidox.site" target="_blank" rel="noopener noreferrer" aria-label="View Equidox AI Live"><span className="term-prompt">$</span> preview -&gt;</a>
+              </div>
+            </div>
             <div className="project-card">
               <h3 className="project-title">Lucidus'26</h3>
               <p className="project-desc">Official website for the college fest. High traffic support, mobile-first, and performance optimized.</p>
@@ -170,10 +166,11 @@ function App() {
                 <span className="tag">Performance</span>
               </div>
               <div className="project-links">
-                <a href="#">View Live <ArrowUpRight size={16} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
               </div>
             </div>
             <div className="project-card">
+              <video src="/cinelenz.mp4" autoPlay loop muted playsInline style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '4px', marginBottom: '1.5rem', border: '1px solid var(--border)' }}></video>
               <h3 className="project-title">CineLenz</h3>
               <p className="project-desc">AI-powered movie sentiment analysis platform featuring trend visualization and dataset processing.</p>
               <div className="project-tags">
@@ -181,7 +178,7 @@ function App() {
                 <span className="tag">Sentiment Analysis</span>
               </div>
               <div className="project-links">
-                <a href="#">View Live <ArrowUpRight size={16} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
               </div>
             </div>
             <div className="project-card">
@@ -192,7 +189,7 @@ function App() {
                 <span className="tag">Networking</span>
               </div>
               <div className="project-links">
-                <a href="#">View Live <ArrowUpRight size={16} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
               </div>
             </div>
             <div className="project-card">
@@ -203,7 +200,7 @@ function App() {
                 <span className="tag">DApp</span>
               </div>
               <div className="project-links">
-                <a href="#">View Live <ArrowUpRight size={16} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
               </div>
             </div>
           </div>
@@ -237,6 +234,8 @@ function App() {
             </div>
           </div>
         </section>
+
+        <SkillsMarquee />
 
         {/* Skills Section */}
         <section className="section container" id="skills">
@@ -288,9 +287,6 @@ function App() {
           </div>
         </section>
 
-        <section className="container">
-          <AsciiWave />
-        </section>
       </main>
 
       {/* Footer */}
@@ -315,12 +311,12 @@ function App() {
             <p className="footer-text mt-2 mono" style={{fontSize: '0.75rem'}}>Designed with precision.</p>
           </div>
           <div className="footer-socials" style={{ fontSize: '1.5rem', gap: '1.5rem' }}>
-            <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
-            <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-            <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-            <a href="mailto:allenpjison@gmail.com"><SiGmail /></a>
-            <a href="https://buymeacoffee.com/allenpj" target="_blank" rel="noopener noreferrer"><SiBuymeacoffee /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+            <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>
+            <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+            <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+            <a href="mailto:allenpjison@gmail.com" aria-label="Email"><SiGmail /></a>
+            <a href="https://buymeacoffee.com/allenpj" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee"><SiBuymeacoffee /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
           </div>
         </div>
       </footer>
