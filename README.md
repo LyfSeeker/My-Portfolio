@@ -1,16 +1,44 @@
-# React + Vite
+# Allen P. Jison - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A sleek, interactive, and terminal-themed personal portfolio built to showcase my projects, skills, and experience as a Full-Stack, AI, and Blockchain developer. 
 
-Currently, two official plugins are available:
+🌐 **Live Website:** [https://allenpj.me](https://allenpj.me)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Interactive Terminal:** A fully functional mock terminal (`bash`) built into the hero section. Type commands like `help`, `skills`, or `projects` to navigate!
+- **Dynamic Projects Showcase:** A sideways scrollable featured projects section to elegantly display work.
+- **Custom 404 Page:** A themed error page for invalid routes.
+- **Responsive & Modern Design:** Dark mode by default, built with responsive CSS flexbox/grids.
+- **SEO Optimized:** Metadata, Open Graph tags, and standard SEO files (`robots.txt`, `sitemap.xml`) are included.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the Oxlint configuration
+- **Framework:** [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Styling:** Vanilla CSS (Custom Design System)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/) & [Lucide React](https://lucide.dev/)
+- **Hosting:** [Vercel](https://vercel.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🚀 Running Locally
+
+To run this project locally on your machine:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/LyfSeeker/My-Portfolio.git
+   ```
+2. Navigate into the project:
+   ```bash
+   cd portfoliowebsite
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📝 License
+This project is open-source and available under the [MIT License](LICENSE).
