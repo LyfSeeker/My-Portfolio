@@ -102,8 +102,11 @@ export const InteractiveTerminal = () => {
         return (
           <div>
             <span className="term-key">Email:</span> allenpjison@gmail.com<br />
-            <span className="term-key">GitHub:</span> github.com/LyfSeeker<br />
-            <span className="term-key">LinkedIn:</span> linkedin.com/in/allenpjison
+            <span className="term-key">LinkedIn:</span> linkedin.com/in/allenpjison<br />
+            <span className="term-key">X (Twitter):</span> x.com/allenpj_<br />
+            <span className="term-key">Instagram:</span> instagram.com/allen_p.j<br />
+            <span className="term-key">Telegram:</span> t.me/allen_xz<br />
+            <span className="term-key">GitHub:</span> github.com/LyfSeeker
           </div>
         );
       default:

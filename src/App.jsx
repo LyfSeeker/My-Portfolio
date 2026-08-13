@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { PopupButton } from 'react-calendly';
 import { GitHubCalendar } from 'react-github-calendar';
 import { Moon, Sun, ArrowUpRight, ArrowRight, Menu, X } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiGmail, SiBuymeacoffee } from 'react-icons/si';
 import { TypewriterText } from './components/TerminalFx';
@@ -316,7 +316,8 @@ function App() {
             <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
             <a href="mailto:allenpjison@gmail.com" aria-label="Email"><SiGmail /></a>
             <a href="https://buymeacoffee.com/allenpj" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee"><SiBuymeacoffee /></a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://instagram.com/allen_p.j" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://t.me/allen_xz" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegram /></a>
           </div>
         </div>
       </footer>
