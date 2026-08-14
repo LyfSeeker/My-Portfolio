@@ -357,6 +357,7 @@ main {
 .timeline {
   border-left: 2px solid var(--border);
   padding-left: 2rem;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;

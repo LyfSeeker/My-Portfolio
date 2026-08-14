@@ -282,7 +282,6 @@ function App() {
             <div className="skill-list">
               <span className="skill-tag">Git & GitHub</span>
               <span className="skill-tag">Docker</span>
-              <span className="skill-tag">Vercel & Render</span>
             </div>
           </div>
         </section>
