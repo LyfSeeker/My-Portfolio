@@ -26,10 +26,15 @@ export const InteractiveTerminal = () => {
   const [historyIndex, setHistoryIndex] = useState(-1);
   
   const inputRef = useRef(null);
-  const terminalEndRef = useRef(null);
+  const terminalBodyRef = useRef(null);
 
   const scrollToBottom = () => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (terminalBodyRef.current) {
+      terminalBodyRef.current.scrollTo({
+        top: terminalBodyRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
   };
 
   useEffect(() => {
@@ -166,7 +171,7 @@ export const InteractiveTerminal = () => {
         <div className="terminal-dot dot-green"></div>
         <span className="terminal-title">bash</span>
       </div>
-      <div className="terminal-body mono" style={{ height: '320px', overflowY: 'auto' }}>
+      <div className="terminal-body mono" ref={terminalBodyRef} style={{ height: '320px', overflowY: 'auto' }}>
         {history.map((entry, i) => (
           <div key={i} style={{ marginBottom: entry.type === 'output' ? '1rem' : '0' }}>
             {entry.type === 'command' ? (
@@ -195,7 +200,6 @@ export const InteractiveTerminal = () => {
             autoFocus
           />
         </div>
-        <div ref={terminalEndRef} />
       </div>
     </div>
   );
