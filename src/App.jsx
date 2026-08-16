@@ -9,7 +9,6 @@ import { TypewriterText } from './components/TerminalFx';
 import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { Preloader } from './components/Preloader';
 import { SkillsMarquee } from './components/SkillsMarquee';
-import { FluidBackground } from './components/FluidBackground';
 import './App.css';
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
   return (
     <div className="app-container" style={{ overflow: booted ? 'auto' : 'hidden', height: booted ? 'auto' : '100vh' }}>
       {!booted && <Preloader onComplete={() => setBooted(true)} />}
-      <FluidBackground theme={theme} />
       {/* Navbar */}
       <nav className="navbar">
         <div className="container nav-content">
