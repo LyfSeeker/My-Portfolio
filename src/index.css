@@ -96,7 +96,8 @@ ul {
 }
 
 .section {
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .flex {
