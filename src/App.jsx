@@ -139,13 +139,10 @@ function App() {
 
         {/* Featured Projects */}
         <section className="section container" id="projects">
-          <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+          <div className="section-header">
             <h2 className="section-title" style={{ marginBottom: 0 }}>Things I've built</h2>
-            <span style={{ color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', paddingBottom: '0.5rem' }}>
-              Scroll <ArrowRight size={16} />
-            </span>
           </div>
-          <div className="projects-scroll-container">
+          <div className="projects-grid">
             <div className="project-card">
               <img src="/equidoxai.png" alt="Equidox AI preview" style={{ width: '100%', height: '200px', objectFit: 'contain', backgroundColor: '#0f1115', borderRadius: '4px', marginBottom: '1.5rem', border: '1px solid var(--border)' }} />
               <h3 className="project-title">Equidox AI</h3>
@@ -158,28 +155,6 @@ function App() {
               <div className="project-links">
                 <a href="https://github.com/LyfSeeker/Equidox-AI" target="_blank" rel="noopener noreferrer" aria-label="View Equidox AI GitHub"><span className="term-prompt">$</span> view_code -&gt;</a>
                 <a href="https://equidox.site" target="_blank" rel="noopener noreferrer" aria-label="View Equidox AI Live"><span className="term-prompt">$</span> preview -&gt;</a>
-              </div>
-            </div>
-            <div className="project-card">
-              <div style={{
-                width: '100%', height: '200px', borderRadius: '4px',
-                marginBottom: '1.5rem', border: '1px solid var(--border)',
-                background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #0f0f0f 100%)',
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
-              }}>
-                <span style={{ fontSize: '2.5rem' }}>🎉</span>
-                <span style={{ fontFamily: '"Space Mono", monospace', color: '#a3a3a3', fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Lucidus &apos;26</span>
-                <span style={{ fontFamily: '"Space Mono", monospace', color: '#555', fontSize: '0.65rem', letterSpacing: '0.1em' }}>College Fest</span>
-              </div>
-              <h3 className="project-title">Lucidus'26</h3>
-              <p className="project-desc">Official website for the college fest. High traffic support, mobile-first, and performance optimized.</p>
-              <div className="project-tags">
-                <span className="tag">Responsive</span>
-                <span className="tag">Performance</span>
-              </div>
-              <div className="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
               </div>
             </div>
             <div className="project-card">

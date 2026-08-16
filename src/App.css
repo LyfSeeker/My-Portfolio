@@ -287,27 +287,12 @@ main {
   gap: 1.5rem;
 }
 
-/* Sideways scrollable projects */
-.projects-scroll-container {
-  display: flex;
-  overflow-x: auto;
+/* Sideways scrollable projects replaced by CSS Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   padding-bottom: 1.5rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.projects-scroll-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.projects-scroll-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.projects-scroll-container::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
 }
 
 /* Project Card */
@@ -319,8 +304,6 @@ main {
   transition: transform 0.2s ease, border-color 0.2s ease;
   display: flex;
   flex-direction: column;
-  flex: 0 0 min(85vw, 380px);
-  scroll-snap-align: center;
 }
 
 .project-card:hover {
