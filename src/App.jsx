@@ -122,17 +122,32 @@ function App() {
           <div className="timeline">
             <div className="timeline-item">
               <div className="timeline-dot"></div>
-              <span className="timeline-date mono">Mar 2026 – Present</span>
+              <span className="timeline-date mono">Mar 2026 – Jun 2026</span>
               <h3 className="timeline-title">ENIAC</h3>
               <p className="timeline-subtitle">Business Development Intern</p>
-              <p className="timeline-desc">Collaborating with technical teams, improving workflows, and understanding software products at scale.</p>
+              <ul className="timeline-desc" style={{ listStyleType: 'disc', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <li>Spearheaded strategic outreach initiatives and managed direct client communications to optimize engagement and drive ecosystem growth.</li>
+                <li>Streamlined operational workflows and onboarding processes, improving cross-functional efficiency within a fast-paced Web3 environment.</li>
+              </ul>
             </div>
             <div className="timeline-item">
               <div className="timeline-dot"></div>
               <span className="timeline-date mono">Jan 2025 – May 2025</span>
               <h3 className="timeline-title">Talrop</h3>
               <p className="timeline-subtitle">Student Intern</p>
-              <p className="timeline-desc">Worked with modern software development workflows, agile methodologies, and industry-standard development practices.</p>
+              <ul className="timeline-desc" style={{ listStyleType: 'disc', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <li>Acquired hands-on experience with industrial software development lifecycles, agile workflows, and enterprise-grade technology standards.</li>
+              </ul>
+            </div>
+            <div className="timeline-item">
+              <div className="timeline-dot"></div>
+              <span className="timeline-date mono">Dec 2024 – Mar 2025</span>
+              <h3 className="timeline-title">5ireChain</h3>
+              <p className="timeline-subtitle">Growth Intern</p>
+              <ul className="timeline-desc" style={{ listStyleType: 'disc', paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <li>Drove ecosystem expansion and community engagement initiatives for the 5ireChain blockchain network.</li>
+                <li>Analyzed Web3 market trends to identify and execute strategic growth opportunities, significantly enhancing developer relations.</li>
+              </ul>
             </div>
           </div>
         </section>
