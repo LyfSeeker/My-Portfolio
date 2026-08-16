@@ -456,10 +456,11 @@ main {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  text-align: center;
+  gap: 2rem;
 }
 
 .footer-socials {
