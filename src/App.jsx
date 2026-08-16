@@ -9,6 +9,7 @@ import { TypewriterText } from './components/TerminalFx';
 import { InteractiveTerminal } from './components/InteractiveTerminal';
 import { Preloader } from './components/Preloader';
 import { SkillsMarquee } from './components/SkillsMarquee';
+import { FluidBackground } from './components/FluidBackground';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="app-container" style={{ overflow: booted ? 'auto' : 'hidden', height: booted ? 'auto' : '100vh' }}>
       {!booted && <Preloader onComplete={() => setBooted(true)} />}
+      <FluidBackground theme={theme} />
       {/* Navbar */}
       <nav className="navbar">
         <div className="container nav-content">
@@ -41,8 +43,8 @@ function App() {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
-          <button 
-            className="mobile-menu-btn" 
+          <button
+            className="mobile-menu-btn"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -65,7 +67,7 @@ function App() {
                 I'm a full-stack developer passionate about building fast, scalable web applications and AI-powered products. I enjoy solving real-world problems, participating in hackathons, and turning ideas into polished user experiences.
               </p>
               <div className="btn-group">
-                <PopupButton 
+                <PopupButton
                   url="https://calendly.com/allenpjison"
                   rootElement={document.getElementById('root')}
                   text="Schedule Call"
@@ -75,11 +77,13 @@ function App() {
                   Resume
                 </a>
               </div>
-              <div className="footer-socials mt-8">
-                <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">X</a>
-                <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LINKEDIN</a>
-                <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer" aria-label="GitHub">GITHUB</a>
-                <a href="mailto:allenpjison@gmail.com" aria-label="Email">EMAIL</a>
+              <div className="footer-socials mt-8" style={{ fontSize: '1.4rem', gap: '1.25rem' }}>
+                <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>
+                <a href="https://linkedin.com/in/allenpjison" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+                <a href="https://github.com/LyfSeeker" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+                <a href="mailto:allenpjison@gmail.com" aria-label="Email"><SiGmail /></a>
+                <a href="https://instagram.com/allen_p.j" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+                <a href="https://t.me/allen_xz" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegram /></a>
               </div>
             </div>
           </div>
@@ -101,8 +105,8 @@ function App() {
             <p className="section-subtitle">GitHub profile activity</p>
           </div>
           <div className="github-graph-container">
-            <GitHubCalendar 
-              username="LyfSeeker" 
+            <GitHubCalendar
+              username="LyfSeeker"
               colorScheme={theme}
               theme={{
                 light: ['#ebedf0', '#cccccc', '#999999', '#666666', '#333333'],
@@ -159,6 +163,17 @@ function App() {
               </div>
             </div>
             <div className="project-card">
+              <div style={{
+                width: '100%', height: '200px', borderRadius: '4px',
+                marginBottom: '1.5rem', border: '1px solid var(--border)',
+                background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #0f0f0f 100%)',
+                display: 'flex', flexDirection: 'column',
+                alignItems: 'center', justifyContent: 'center', gap: '0.5rem'
+              }}>
+                <span style={{ fontSize: '2.5rem' }}>🎉</span>
+                <span style={{ fontFamily: '"Space Mono", monospace', color: '#a3a3a3', fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase' }}>Lucidus &apos;26</span>
+                <span style={{ fontFamily: '"Space Mono", monospace', color: '#555', fontSize: '0.65rem', letterSpacing: '0.1em' }}>College Fest</span>
+              </div>
               <h3 className="project-title">Lucidus'26</h3>
               <p className="project-desc">Official website for the college fest. High traffic support, mobile-first, and performance optimized.</p>
               <div className="project-tags">
@@ -242,7 +257,7 @@ function App() {
           <div className="section-header">
             <h2 className="section-title">Tech Stack</h2>
           </div>
-          
+
           <div className="skill-category">
             <h3 className="mono">{'//'} Languages</h3>
             <div className="skill-list">
@@ -253,7 +268,7 @@ function App() {
               <span className="skill-tag">C</span>
             </div>
           </div>
-          
+
           <div className="skill-category">
             <h3 className="mono">{'//'} Frontend & Backend</h3>
             <div className="skill-list">
@@ -307,7 +322,7 @@ function App() {
         <div className="footer-content">
           <div>
             <p className="footer-text">© 2026 Allen P. Jison. All rights reserved.</p>
-            <p className="footer-text mt-2 mono" style={{fontSize: '0.75rem'}}>Designed with precision.</p>
+            <p className="footer-text mt-2 mono" style={{ fontSize: '0.75rem' }}>Designed with precision.</p>
           </div>
           <div className="footer-socials" style={{ fontSize: '1.5rem', gap: '1.5rem' }}>
             <a href="https://x.com/allenpj_" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><FaXTwitter /></a>
