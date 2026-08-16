@@ -390,7 +390,7 @@ export const TypewriterText = ({ strings, delay = 2000 }) => {
       fontSize: '1.25rem',
       fontFamily: '"Space Mono", monospace',
       marginBottom: '1.5rem',
-      color: 'var(--text-secondary)',
+      color: 'var(--accent)',
       display: 'inline-block',
       position: 'relative',
       minHeight: '1.5em'
@@ -400,7 +400,7 @@ export const TypewriterText = ({ strings, delay = 2000 }) => {
         display: 'inline-block',
         width: '0.6em',
         height: '1.1em',
-        backgroundColor: 'var(--text-secondary)',
+        backgroundColor: 'var(--accent)',
         animation: 'blink 1s step-end infinite',
         verticalAlign: 'middle',
         marginLeft: '4px',
