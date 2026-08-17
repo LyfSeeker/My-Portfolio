@@ -182,7 +182,8 @@ function App() {
                 <span className="tag">Sentiment Analysis</span>
               </div>
               <div className="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
+                <a href="https://github.com/LyfSeeker/cinelenzV2" target="_blank" rel="noopener noreferrer" aria-label="View CineLenz GitHub"><span className="term-prompt">$</span> view_code -&gt;</a>
+                <a href="https://cinelenz.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="View CineLenz Live"><span className="term-prompt">$</span> preview -&gt;</a>
               </div>
             </div>
             <div className="project-card">
@@ -194,7 +195,8 @@ function App() {
                 <span className="tag">Networking</span>
               </div>
               <div className="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Zynqtra Live"><span className="term-prompt">$</span> preview -&gt;</a>
+                <a href="https://github.com/LyfSeeker/zynqtra" target="_blank" rel="noopener noreferrer" aria-label="View Zynqtra GitHub"><span className="term-prompt">$</span> view_code -&gt;</a>
+                <a href="https://zynqtra-gamma.vercel.app" target="_blank" rel="noopener noreferrer" aria-label="View Zynqtra Live"><span className="term-prompt">$</span> preview -&gt;</a>
               </div>
             </div>
             <div className="project-card">
