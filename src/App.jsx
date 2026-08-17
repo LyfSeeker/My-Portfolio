@@ -196,14 +196,20 @@ function App() {
               </div>
             </div>
             <div className="project-card">
-              <h3 className="project-title">Web3Ads</h3>
+              <img src="/web3ads.png" alt="Web3Ads preview" style={{ width: '100%', height: '200px', objectFit: 'cover', objectPosition: 'top', borderRadius: '4px', marginBottom: '1.5rem', border: '1px solid var(--border)' }} />
+              <h3 className="project-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                Web3Ads
+                <span style={{ fontSize: '0.75rem', backgroundColor: 'var(--bg-tertiary)', padding: '2px 8px', borderRadius: '12px', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  🥈 ETHMumbai '26
+                </span>
+              </h3>
               <p className="project-desc">Decentralized advertising platform focusing on modern UI and responsive frontend.</p>
               <div className="project-tags">
                 <span className="tag">Blockchain</span>
                 <span className="tag">DApp</span>
               </div>
               <div className="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
+                <a href="https://web3ads.wtf" target="_blank" rel="noopener noreferrer" aria-label="View Web3Ads Live"><span className="term-prompt">$</span> preview -&gt;</a>
               </div>
             </div>
           </div>
