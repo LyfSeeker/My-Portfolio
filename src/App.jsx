@@ -186,6 +186,7 @@ function App() {
               </div>
             </div>
             <div className="project-card">
+              <ImageCarousel images={['/zynqtra-1.png', '/zynqtra-2.png', '/zynqtra-3.png', '/zynqtra-4.png']} />
               <h3 className="project-title">Zynqtra</h3>
               <p className="project-desc">Gamified networking platform with QR networking, wallet authentication, and leaderboards.</p>
               <div className="project-tags">
@@ -193,7 +194,7 @@ function App() {
                 <span className="tag">Networking</span>
               </div>
               <div className="project-links">
-                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Project Live">View Live <ArrowUpRight size={16} /></a>
+                <a href="#" target="_blank" rel="noopener noreferrer" aria-label="View Zynqtra Live"><span className="term-prompt">$</span> preview -&gt;</a>
               </div>
             </div>
             <div className="project-card">
